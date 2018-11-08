@@ -27,8 +27,7 @@ public class MP3Player {
                 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                     @Override
                     public void onPrepared(MediaPlayer mp) {
-                        mediaPlayer.start();
-
+                        if(isPlaying)mediaPlayer.start();
                     }
                 });
                 isPlaying=true;
@@ -46,10 +45,10 @@ public class MP3Player {
     }
     public boolean toggle(){
         if(isPlaying){
-            mediaPlayer.pause();
+            if(mediaPlayer.isPlaying()) mediaPlayer.pause();
             isPlaying=false;
         }else{
-            mediaPlayer.start();
+            if(mediaPlayer.getAudioSessionId()!=0)mediaPlayer.start();
             isPlaying=true;
         }
         return isPlaying;

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void initialize(){
         mRecyclerView = findViewById(R.id.recycler_View);
+        mRecyclerView.setVisibility(View.GONE);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         loadingProgress = findViewById(R.id.progressBar);
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void OnFinishedBuildingJSON(){
         loadingProgress.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
         mAdapter = new Custom_Adapter(albums, this);
         mRecyclerView.setAdapter(mAdapter);
 
