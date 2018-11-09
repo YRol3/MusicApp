@@ -9,13 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Small_Recycler_Adapter extends RecyclerView.Adapter<Small_Recycler_Adapter.My_Small_View_Holder> {
 
-    private ArrayList<Songs> songs;
+    private List<Song> songs;
     private OnClickItem listener;
     private Context context;
-    public Small_Recycler_Adapter(ArrayList<Songs> songs, Context context){
+    public Small_Recycler_Adapter(List<Song> songs, Context context){
         this.songs = songs;
         this.context = context;
     }

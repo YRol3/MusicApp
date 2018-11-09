@@ -16,15 +16,16 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Custom_Adapter extends RecyclerView.Adapter<Custom_Adapter.My_View_Holder> {
-    private ArrayList<Album> albums;
+    private List<Album> albums;
     private Context context;
     private MP3Player mp3Player;
     private ImageView currentState;
     private static Album playingAlbum;
-    private ArrayList<ImageView> controlsList = new ArrayList<>();
-    public Custom_Adapter(ArrayList<Album> albums, Context context){
+    private List<ImageView> controlsList = new ArrayList<>();
+    public Custom_Adapter(List<Album> albums, Context context){
         this.albums = albums;
         this.context = context;
         mp3Player = new MP3Player(context);
@@ -41,7 +42,7 @@ public class Custom_Adapter extends RecyclerView.Adapter<Custom_Adapter.My_View_
         Picasso.get().load(albums.get(i).getAlbumImage()).resize(300,300).into(my_view_holder.img, new Callback() {
             @Override
             public void onSuccess() {
-                my_view_holder.imgLoadingProgress.setVisibility(View.GONE);
+                my_view_holder.imgLoadingProgress.setVisibility(View.INVISIBLE);
             }
             @Override
             public void onError(Exception e) {
@@ -106,7 +107,10 @@ public class Custom_Adapter extends RecyclerView.Adapter<Custom_Adapter.My_View_
             rv = view.findViewById(R.id.rv);
             SnapHelper helper = new LinearSnapHelper();
             rv.setLayoutManager(layoutManager);
+            RecyclerView.ItemDecoration decoration = new PageIndicator(context);
+            rv.addItemDecoration(decoration);
             helper.attachToRecyclerView(rv);
+
         }
     }
     public void setAllButOne(ImageView except){

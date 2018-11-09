@@ -1,22 +1,15 @@
 package app.music.il.co.musicapp;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Album {
     private String albumName;
     private String artist;
     private String albumImage;
     private String genre;
-    private ArrayList<Songs> songs;
+    private List<Song> songs;
 
     public Album() {
-    }
-    public Album(String albumName, String artist, String albumImage, String genre, ArrayList<Songs> songs) {
-        this.albumName = albumName;
-        this.artist = artist;
-        this.albumImage = albumImage;
-        this.genre = genre;
-        this.songs = songs;
     }
 
     public String getAlbumName() {
@@ -43,19 +36,15 @@ public class Album {
         this.albumImage = albumImage;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
     public void setGenre(String genre) {
         this.genre = genre;
     }
 
-    public ArrayList<Songs> getSongs() {
+    public List<Song> getSongs() {
         return songs;
     }
 
-    public void setSongs(ArrayList<Songs> songs) {
+    public void setSongs(List<Song> songs) {
         this.songs = songs;
     }
 

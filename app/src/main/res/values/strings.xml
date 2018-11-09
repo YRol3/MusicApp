@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">Music Pro</string>
+    <string name="app_name">Music plus</string>
     <string name="sing_artist_seperator"> - </string>
     <string name="hash_tag">#</string>
     <string name="album_string">Album</string>
+    <string name="loading_title">Welcome</string>
+    <string name="loading_message">We are loading the content for you :)</string>
 </resources>

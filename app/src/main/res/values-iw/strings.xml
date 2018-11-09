@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">מוזיק פרו</string>
+    <string name="app_name">מוזיק פלוס</string>
     <string name="sing_artist_seperator"> - </string>
     <string name="hash_tag">#</string>
     <string name="album_string">אלבום</string>
+    <string name="loading_title">ברוכים הבאים</string>
+    <string name="loading_message">"אנחנו טועים בשבילכם את התוכן :)"</string>
 </resources>

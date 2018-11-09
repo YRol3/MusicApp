@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Музыка Плюс</string>
+    <string name="sing_artist_seperator">-</string>
+    <string name="hash_tag">#</string>
+    <string name="album_string">Альбом</string>
+    <string name="loading_title">добро пожаловать</string>
+    <string name="loading_message">Мы загружаем контент для вас :)</string>
+</resources>

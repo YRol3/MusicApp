@@ -1,7 +1,6 @@
 package app.music.il.co.musicapp;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,12 +11,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FetchData extends AsyncTask<Void, Void, Void> {
     private OnFinishGettingData listener;
-    private ArrayList<Album> albums;
+    private List<Album> albums;
 
-    public FetchData(ArrayList<Album> albums){
+    public FetchData(List<Album> albums){
         this.albums = albums;
     }
     @Override
@@ -38,12 +38,12 @@ public class FetchData extends AsyncTask<Void, Void, Void> {
             for (int i = 0; i < allJSON.length(); i++) {
                 JSONObject albumJSON = (JSONObject) allJSON.get(i);
                 JSONArray songsArray = albumJSON.getJSONArray("songs");
-                ArrayList<Songs> songs = new ArrayList<>();
+                ArrayList<Song> songs = new ArrayList<>();
 
                 Album album = new Album();
                 for (int j = 0; j < songsArray.length() ; j++) {
                     JSONObject songJSON = (JSONObject) songsArray.get(j);
-                    songs.add(new Songs(songJSON.getString("song"),
+                    songs.add(new Song(songJSON.getString("song"),
                             songJSON.getString("duration"),
                             songJSON.getString("#"),
                             songJSON.getString("url"),
