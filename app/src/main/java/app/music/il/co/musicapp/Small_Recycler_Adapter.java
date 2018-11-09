@@ -1,5 +1,6 @@
 package app.music.il.co.musicapp;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,8 +14,10 @@ public class Small_Recycler_Adapter extends RecyclerView.Adapter<Small_Recycler_
 
     private ArrayList<Songs> songs;
     private OnClickItem listener;
-    public Small_Recycler_Adapter(ArrayList<Songs> songs){
+    private Context context;
+    public Small_Recycler_Adapter(ArrayList<Songs> songs, Context context){
         this.songs = songs;
+        this.context = context;
     }
     @NonNull
     @Override
@@ -25,10 +28,10 @@ public class Small_Recycler_Adapter extends RecyclerView.Adapter<Small_Recycler_
 
     @Override
     public void onBindViewHolder(@NonNull My_Small_View_Holder my_small_view_holder, int i) {
-        my_small_view_holder.artistNsong.setText(String.format("%s - %s", songs.get(i).getSongName(), songs.get(i).getAlbum().getArtist()));
-        my_small_view_holder.albumName.setText(songs.get(i).getAlbum().getAlbumName());
+        my_small_view_holder.artistNsong.setText(String.format("%s %s %s",songs.get(i).getAlbum().getArtist(), context.getString(R.string.sing_artist_seperator), songs.get(i).getSongName()));
+        my_small_view_holder.albumName.setText(String.format("%s : %s", context.getString(R.string.album_string), songs.get(i).getAlbum().getAlbumName()));
         my_small_view_holder.songDuration.setText(songs.get(i).getDuration());
-        my_small_view_holder.songNumber.setText(String.format("#%s", songs.get(i).getOrderNumber()));
+        my_small_view_holder.songNumber.setText(String.format("%s%s", songs.get(i).getOrderNumber(), context.getString(R.string.hash_tag)));
     }
 
     @Override

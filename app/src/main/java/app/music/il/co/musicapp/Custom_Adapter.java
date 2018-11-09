@@ -53,7 +53,7 @@ public class Custom_Adapter extends RecyclerView.Adapter<Custom_Adapter.My_View_
             my_view_holder.pauseBtn.setVisibility(View.GONE);
             my_view_holder.playBtn.setVisibility(View.GONE);
         }
-        Small_Recycler_Adapter small_adapter = new Small_Recycler_Adapter(albums.get(i).getSongs());
+        Small_Recycler_Adapter small_adapter = new Small_Recycler_Adapter(albums.get(i).getSongs(), context);
         my_view_holder.rv.setAdapter(small_adapter);
         small_adapter.setItemOnClickListener(new Small_Recycler_Adapter.OnClickItem() {
             @Override

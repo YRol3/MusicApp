@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">מוזיק פרו</string>
+    <string name="sing_artist_seperator"> - </string>
+    <string name="hash_tag">#</string>
+    <string name="album_string">אלבום</string>
+</resources>
