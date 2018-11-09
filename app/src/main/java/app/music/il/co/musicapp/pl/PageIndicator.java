@@ -1,4 +1,4 @@
-package app.music.il.co.musicapp;
+package app.music.il.co.musicapp.pl;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
+
+import app.music.il.co.musicapp.R;
 
 public class PageIndicator extends RecyclerView.ItemDecoration {
 

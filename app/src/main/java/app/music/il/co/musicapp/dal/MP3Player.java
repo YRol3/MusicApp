@@ -1,4 +1,4 @@
-package app.music.il.co.musicapp;
+package app.music.il.co.musicapp.dal;
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -12,7 +12,7 @@ public class MP3Player {
     MediaPlayer mediaPlayer;
     private boolean isPlaying;
     private String lastURL;
-    MP3Player(Context context){
+    public MP3Player(Context context){
         this.context = context;
     }
 

@@ -1,4 +1,6 @@
-package app.music.il.co.musicapp;
+package app.music.il.co.musicapp.bll;
+
+import app.music.il.co.musicapp.bll.Album;
 
 public class Song {
     private String songName;

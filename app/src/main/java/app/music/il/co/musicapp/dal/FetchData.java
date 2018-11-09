@@ -1,4 +1,4 @@
-package app.music.il.co.musicapp;
+package app.music.il.co.musicapp.dal;
 
 import android.os.AsyncTask;
 
@@ -12,6 +12,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import app.music.il.co.musicapp.bll.Album;
+import app.music.il.co.musicapp.bll.Song;
 
 public class FetchData extends AsyncTask<Void, Void, Void> {
     private OnFinishGettingData listener;

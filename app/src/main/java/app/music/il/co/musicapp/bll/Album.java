@@ -1,4 +1,4 @@
-package app.music.il.co.musicapp;
+package app.music.il.co.musicapp.bll;
 
 import java.util.List;
 

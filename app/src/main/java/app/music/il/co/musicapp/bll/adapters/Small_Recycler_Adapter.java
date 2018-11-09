@@ -1,4 +1,4 @@
-package app.music.il.co.musicapp;
+package app.music.il.co.musicapp.bll.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import app.music.il.co.musicapp.R;
+import app.music.il.co.musicapp.bll.Song;
 
 public class Small_Recycler_Adapter extends RecyclerView.Adapter<Small_Recycler_Adapter.My_Small_View_Holder> {
 
@@ -59,6 +61,13 @@ public class Small_Recycler_Adapter extends RecyclerView.Adapter<Small_Recycler_
                     listener.OnClickItemPosition(getAdapterPosition(), v);
                 }
             });
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    listener.OnLongClickItemPosition(getAdapterPosition(), v);
+                    return true;
+                }
+            });
         }
     }
     public void setItemOnClickListener(OnClickItem listener){
@@ -67,5 +76,6 @@ public class Small_Recycler_Adapter extends RecyclerView.Adapter<Small_Recycler_
 
     public interface OnClickItem{
         void OnClickItemPosition(int position, View v);
+        void OnLongClickItemPosition(int position, View v);
     }
 }

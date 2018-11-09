@@ -1,6 +1,5 @@
 package app.music.il.co.musicapp;
 
-import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,12 +9,17 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.music.il.co.musicapp.bll.Album;
+import app.music.il.co.musicapp.bll.adapters.Custom_Adapter;
+import app.music.il.co.musicapp.dal.FetchData;
+import app.music.il.co.musicapp.pl.LoadingDialog;
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private Custom_Adapter mAdapter;
     private RecyclerView mRecyclerView;
     private List<Album> albums = new ArrayList<>();
-    private ProgressDialog progressDialog;
+    private LoadingDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initialize();
     }
-    public void createLoadingDialog(){
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle(this.getString(R.string.loading_title));
-        progressDialog.setMessage(this.getString(R.string.loading_message));
-        progressDialog.show();
-    }
+
     public void initialize(){
-        createLoadingDialog();
+        progressDialog = new LoadingDialog(this);
+        progressDialog.createLoadingDialog(getString(R.string.loading_title), getString(R.string.loading_message));
+        progressDialog.show();
         mRecyclerView = findViewById(R.id.recycler_View);
         mRecyclerView.setVisibility(View.GONE);
         mLayoutManager = new LinearLayoutManager(this);

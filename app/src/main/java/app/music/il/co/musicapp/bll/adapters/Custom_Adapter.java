@@ -1,6 +1,8 @@
-package app.music.il.co.musicapp;
+package app.music.il.co.musicapp.bll.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
@@ -17,6 +19,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import app.music.il.co.musicapp.dal.MP3Player;
+import app.music.il.co.musicapp.R;
+import app.music.il.co.musicapp.bll.Album;
+import app.music.il.co.musicapp.pl.PageIndicator;
 
 public class Custom_Adapter extends RecyclerView.Adapter<Custom_Adapter.My_View_Holder> {
     private List<Album> albums;
@@ -67,6 +74,19 @@ public class Custom_Adapter extends RecyclerView.Adapter<Custom_Adapter.My_View_
                     setAllButOne(my_view_holder.playBtn);
                 }
                 playingAlbum = albums.get(my_view_holder.getAdapterPosition());
+            }
+
+            @Override
+            public void OnLongClickItemPosition(int position, View v) {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("https://www.youtube.com/results?search_query=");
+                stringBuilder.append(albums.get(my_view_holder.getAdapterPosition()).getArtist());
+                stringBuilder.append("+");
+                stringBuilder.append(albums.get(my_view_holder.getAdapterPosition()).getSongs().get(position).getSongName());
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(stringBuilder.toString()));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.google.android.youtube");
+                context.startActivity(intent);
             }
         });
     }
